@@ -18,6 +18,7 @@ import co.com.ceiba.parqueaderofirebase.registrar.ActivityRegistrar;
 public class DataBaseManagerParqueadero implements DataBaseManager {
 
     static DataBaseManagerParqueadero instance;
+    public static Parqueadero parqueadero;
 
     public static DataBaseManagerParqueadero getInstance() {
         if (instance == null) {
@@ -32,10 +33,8 @@ public class DataBaseManagerParqueadero implements DataBaseManager {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                Parqueadero parqueadero = dataSnapshot.getValue(Parqueadero.class);
+                parqueadero = dataSnapshot.getValue(Parqueadero.class);
                 Log.e("PARQUEADERO", parqueadero.toString());
-                ActivityRegistrar.parqueadero = parqueadero;
-                ActivityCobrar.parqueadero = parqueadero;
             }
 
             @Override

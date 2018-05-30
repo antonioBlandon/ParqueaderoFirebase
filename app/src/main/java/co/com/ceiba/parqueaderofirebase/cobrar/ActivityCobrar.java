@@ -2,7 +2,6 @@ package co.com.ceiba.parqueaderofirebase.cobrar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +18,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import co.com.ceiba.parqueaderofirebase.R;
-import co.com.ceiba.parqueaderofirebase.data.DataBaseConstants;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
 import co.com.ceiba.parqueaderofirebase.data.entities.DataBaseManagerImpl;
@@ -33,7 +31,6 @@ import co.com.ceiba.parqueaderofirebase.utils.Utils;
 public class ActivityCobrar extends AppCompatActivity {
 
     private Activity context = ActivityCobrar.this;
-    public static Parqueadero parqueadero;
     public Vehiculo vehiculo;
     private boolean isCar;
 
@@ -83,8 +80,8 @@ public class ActivityCobrar extends AppCompatActivity {
         btnCobrarParqueadero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vehiculo.setValorPagado(cobrar(vehiculo, parqueadero));
-                DataBaseManagerImpl.getInstance().eliminarVehiculo(isCar, vehiculo, parqueadero);
+                vehiculo.setValorPagado(cobrar(vehiculo, DataBaseManagerParqueadero.parqueadero));
+                DataBaseManagerImpl.getInstance().eliminarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.parqueadero);
                 actualizarVista();
                 lanzarResumen(vehiculo, isCar, context);
             }

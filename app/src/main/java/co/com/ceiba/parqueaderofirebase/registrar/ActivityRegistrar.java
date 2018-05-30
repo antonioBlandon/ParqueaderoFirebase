@@ -44,8 +44,6 @@ public class ActivityRegistrar extends AppCompatActivity {
     private EditText etPlaca;
     private EditText etCilindraje;
 
-    public static Parqueadero parqueadero;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,11 +64,11 @@ public class ActivityRegistrar extends AppCompatActivity {
                     return;
                 }
                 boolean placaValida = VigilanteImpl.getInstance().validarPlaca(vehiculo.getPlaca(), vehiculo.getFechaIngreso());
-                boolean tieneCupo = validarCupo(vehiculo, isCar, parqueadero);
+                boolean tieneCupo = validarCupo(vehiculo, isCar, DataBaseManagerParqueadero.parqueadero);
                 boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.listVehiculo, vehiculo);
                 boolean ingresoExitoso = false;
                 if(placaValida && tieneCupo && !placaExiste){
-                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, parqueadero);
+                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.parqueadero);
                     etCilindraje.setText("");
                     etPlaca.setText("");
                     ingresoExitoso = true;
