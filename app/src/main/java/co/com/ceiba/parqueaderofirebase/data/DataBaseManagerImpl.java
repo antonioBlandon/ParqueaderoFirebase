@@ -1,14 +1,12 @@
-package co.com.ceiba.parqueaderofirebase.data.entities;
+package co.com.ceiba.parqueaderofirebase.data;
 
 import android.app.Activity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import co.com.ceiba.parqueaderofirebase.data.DataBaseConstants;
-import co.com.ceiba.parqueaderofirebase.data.DataBaseManager;
-import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
-import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
+import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
+import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 
 public class DataBaseManagerImpl implements DataBaseManager {
 

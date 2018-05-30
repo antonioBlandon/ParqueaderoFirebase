@@ -20,7 +20,7 @@ import java.util.List;
 import co.com.ceiba.parqueaderofirebase.R;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
-import co.com.ceiba.parqueaderofirebase.data.entities.DataBaseManagerImpl;
+import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerImpl;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import co.com.ceiba.parqueaderofirebase.domain.Vigilante;

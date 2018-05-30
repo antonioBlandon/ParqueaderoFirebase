@@ -13,6 +13,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/cobrar/ActivityCobrar.java">
           <value>
             <set />
@@ -24,6 +29,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/DataBaseManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/DataBaseManagerImpl.java">
           <value>
             <set />
           </value>
@@ -74,6 +84,26 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/ParqueaderoBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/VehiculoBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/VigilanteImplTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/build.gradle">
           <value>
             <set />
           </value>
