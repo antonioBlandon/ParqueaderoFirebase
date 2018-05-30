@@ -30,7 +30,7 @@ public class VigilanteImpl implements Vigilante {
     @Override
     public boolean validarCantidadMotos(int cantidadMotosActual) {
         int cantidadMotos = cantidadMotosActual + 1;
-        return cantidadMotos <= 20;
+        return cantidadMotos <= 10;
     }
 
     @Override

@@ -15,7 +15,7 @@ import static org.mockito.Mockito.verify;
 public class TestDataBaseManagerVehiculo {
 
     @Test
-    public void testRead(){
+    public void testWrite(){
         DataBaseManagerVehiculo dataBaseManagerVehiculo = mock(DataBaseManagerVehiculo.class);
         Vehiculo vehiculo = mock(Vehiculo.class);
         doNothing().when(dataBaseManagerVehiculo).write(isA(String.class), isA(Object.class));

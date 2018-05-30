@@ -58,7 +58,7 @@ public class VigilanteImplTest {
         //Act
         boolean puedeIngresar = vigilante.validarCantidadMotos(cantidadMotos);
         //Assert
-        Assert.assertEquals(true, puedeIngresar);
+        Assert.assertEquals(false, puedeIngresar);
     }
 
     @Test

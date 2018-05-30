@@ -59,6 +59,7 @@ public class ActivityRegistrar extends AppCompatActivity {
                     Toast.makeText(context, getString(R.string.placa_vacia), Toast.LENGTH_SHORT).show();
                     return;
                 }
+                isCar = vehiculo.getCilindraje() == 0;
                 boolean placaValida = VigilanteImpl.getInstance().validarPlaca(vehiculo.getPlaca(), vehiculo.getFechaIngreso());
                 boolean tieneCupo = validarCupo(vehiculo, isCar, DataBaseManagerParqueadero.getParqueadero());
                 boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.getListVehiculo(), vehiculo);
@@ -139,10 +140,8 @@ public class ActivityRegistrar extends AppCompatActivity {
             return null;
         }else {
             if (cilindraje.isEmpty()){
-                isCar = true;
                 return new Vehiculo(placa, 0, Calendar.getInstance().getTimeInMillis());
             }else{
-                isCar = false;
                 return new Vehiculo(placa, Integer.valueOf(cilindraje), Calendar.getInstance().getTimeInMillis());
             }
         }
