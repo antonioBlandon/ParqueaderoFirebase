@@ -1,7 +1,10 @@
 package co.com.ceiba.parqueaderofirebase;
 
+import com.google.firebase.database.DatabaseReference;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
@@ -22,4 +25,14 @@ public class TestDataBaseManagerVehiculo {
         dataBaseManagerVehiculo.write("", vehiculo);
         verify(dataBaseManagerVehiculo, times(1)).write("", vehiculo);
     }
+
+    @Test
+    public void testRead(){
+        DataBaseManagerVehiculo dataBaseManagerVehiculo = mock(DataBaseManagerVehiculo.class);
+        Vehiculo vehiculo = mock(Vehiculo.class);
+        doNothing().when(dataBaseManagerVehiculo).read(isA(String.class));
+        dataBaseManagerVehiculo.read("");
+        verify(dataBaseManagerVehiculo, times(1)).read("");
+    }
+
 }
