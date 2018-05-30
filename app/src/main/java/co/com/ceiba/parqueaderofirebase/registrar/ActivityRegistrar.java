@@ -1,8 +1,6 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -21,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -34,7 +31,6 @@ import co.com.ceiba.parqueaderofirebase.data.entities.DataBaseManagerImpl;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
-import co.com.ceiba.parqueaderofirebase.utils.Utils;
 
 public class ActivityRegistrar extends AppCompatActivity {
 
@@ -64,11 +60,11 @@ public class ActivityRegistrar extends AppCompatActivity {
                     return;
                 }
                 boolean placaValida = VigilanteImpl.getInstance().validarPlaca(vehiculo.getPlaca(), vehiculo.getFechaIngreso());
-                boolean tieneCupo = validarCupo(vehiculo, isCar, DataBaseManagerParqueadero.parqueadero);
-                boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.listVehiculo, vehiculo);
+                boolean tieneCupo = validarCupo(vehiculo, isCar, DataBaseManagerParqueadero.getParqueadero());
+                boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.getListVehiculo(), vehiculo);
                 boolean ingresoExitoso = false;
                 if(placaValida && tieneCupo && !placaExiste){
-                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.parqueadero);
+                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.getParqueadero());
                     etCilindraje.setText("");
                     etPlaca.setText("");
                     ingresoExitoso = true;

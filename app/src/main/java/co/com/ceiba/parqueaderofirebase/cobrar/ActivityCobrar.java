@@ -31,7 +31,7 @@ import co.com.ceiba.parqueaderofirebase.utils.Utils;
 public class ActivityCobrar extends AppCompatActivity {
 
     private Activity context = ActivityCobrar.this;
-    public Vehiculo vehiculo;
+    private Vehiculo vehiculo;
     private boolean isCar;
 
     private LinearLayout llInfoVehiculo;
@@ -60,7 +60,7 @@ public class ActivityCobrar extends AppCompatActivity {
             public void onClick(View v) {
                 String placa = etBuscarPlaca.getText().toString();
                 if (!placa.isEmpty()) {
-                    vehiculo = getVehiculo(DataBaseManagerVehiculo.listVehiculo, placa);
+                    vehiculo = getVehiculo(DataBaseManagerVehiculo.getListVehiculo(), placa);
                     boolean placaExiste = vehiculo.getPlaca() != null;
                     if (placaExiste) {
                         isCar = vehiculo.getCilindraje() == 0;
@@ -80,8 +80,8 @@ public class ActivityCobrar extends AppCompatActivity {
         btnCobrarParqueadero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                vehiculo.setValorPagado(cobrar(vehiculo, DataBaseManagerParqueadero.parqueadero));
-                DataBaseManagerImpl.getInstance().eliminarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.parqueadero);
+                vehiculo.setValorPagado(cobrar(vehiculo, DataBaseManagerParqueadero.getParqueadero()));
+                DataBaseManagerImpl.getInstance().eliminarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.getParqueadero());
                 actualizarVista();
                 lanzarResumen(vehiculo, isCar, context);
             }
