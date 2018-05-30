@@ -30,6 +30,7 @@ import co.com.ceiba.parqueaderofirebase.R;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseConstants;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
+import co.com.ceiba.parqueaderofirebase.data.entities.DataBaseManagerImpl;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
@@ -69,12 +70,7 @@ public class ActivityRegistrar extends AppCompatActivity {
                 boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.listVehiculo, vehiculo);
                 boolean ingresoExitoso = false;
                 if(placaValida && tieneCupo && !placaExiste){
-                    DataBaseManagerVehiculo.getInstance().write(null, vehiculo);
-                    if (isCar){
-                        DataBaseManagerParqueadero.getInstance().write(DataBaseConstants.REFERENCE_PARKING+DataBaseConstants.REFERENCE_COUNT_CAR, parqueadero.getCantidadCarros() + 1);
-                    }else{
-                        DataBaseManagerParqueadero.getInstance().write(DataBaseConstants.REFERENCE_PARKING+DataBaseConstants.REFERENCE_COUNT_MOTO, parqueadero.getCantidadMotos() + 1);
-                    }
+                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, parqueadero);
                     etCilindraje.setText("");
                     etPlaca.setText("");
                     ingresoExitoso = true;

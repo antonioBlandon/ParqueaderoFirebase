@@ -6,14 +6,14 @@ public class Vehiculo {
     private long fechaIngreso;
     private long fechaSalida;
     private String placa;
-    private int diasEnParqueadero;
-    private int horasEnParqueadero;
+    private long diasEnParqueadero;
+    private long horasEnParqueadero;
     private long valorPagado;
 
     public Vehiculo() {
     }
 
-    public Vehiculo(int cilindraje, long fechaIngreso, long fechaSalida, String placa, int diasEnParqueadero, int horasEnParqueadero, long valorPagado) {
+    public Vehiculo(int cilindraje, long fechaIngreso, long fechaSalida, String placa, long diasEnParqueadero, long horasEnParqueadero, long valorPagado) {
         this.cilindraje = cilindraje;
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
@@ -61,19 +61,19 @@ public class Vehiculo {
         this.placa = placa;
     }
 
-    public int getDiasEnParqueadero() {
+    public long getDiasEnParqueadero() {
         return diasEnParqueadero;
     }
 
-    public void setDiasEnParqueadero(int diasEnParqueadero) {
+    public void setDiasEnParqueadero(long diasEnParqueadero) {
         this.diasEnParqueadero = diasEnParqueadero;
     }
 
-    public int getHorasEnParqueadero() {
+    public long getHorasEnParqueadero() {
         return horasEnParqueadero;
     }
 
-    public void setHorasEnParqueadero(int horasEnParqueadero) {
+    public void setHorasEnParqueadero(long horasEnParqueadero) {
         this.horasEnParqueadero = horasEnParqueadero;
     }
 

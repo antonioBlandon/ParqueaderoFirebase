@@ -82,8 +82,7 @@ public class DataBaseManagerVehiculo implements DataBaseManager {
     }
 
     @Override
-    public void write(String nReference, Object object) {
-        String nodeReference = DataBaseConstants.REFERENCE_VEHICLE + ((Vehiculo) object).getPlaca();
+    public void write(String nodeReference, Object object) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference(nodeReference);
         reference.setValue(object);
     }

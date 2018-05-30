@@ -33,7 +33,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/entities/DataBaseManagerImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/entities/Parqueadero.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/entities/Vehiculo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/domain/Vigilante.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/domain/VigilanteImpl.java">
           <value>
             <set />
           </value>
