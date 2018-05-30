@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "1049525995291",
+    "firebase_url": "https://parqueadero-e7bda.firebaseio.com",
+    "project_id": "parqueadero-e7bda",
+    "storage_bucket": "parqueadero-e7bda.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049525995291:android:569375e3f390e96e",
+        "android_client_info": {
+          "package_name": "co.com.ceiba.parqueaderofirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049525995291-shj4jrkhrkur2fst82f43ai3ngfthu07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.ceiba.parqueaderofirebase",
+            "certificate_hash": "3f9fcd14a36e9b338cab2162185abf7e80fda296"
+          }
+        },
+        {
+          "client_id": "1049525995291-8inu9es3gbur0n0v2iks3p8vsjf0d4us.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "1049525995291-8inu9es3gbur0n0v2iks3p8vsjf0d4us.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXVIK5zJ25KV4Zkl--hPqqwxf4qKmR5ic"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049525995291-8inu9es3gbur0n0v2iks3p8vsjf0d4us.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

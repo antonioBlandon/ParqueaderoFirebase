@@ -1,0 +1,8 @@
+
+dsquid:S1854B"FRemove this useless assignment to local variable "valueEventListener".(×æË¶8âÉŠïº,
+Psquid:S1481""-Remove this unused "vehiculo" local variable.(ñŠ›Ÿúÿÿÿÿ8Üàëîº,
+Ssquid:S1854#"5Remove this useless assignment to local variable "c".(çâœ8Üàëîº,
+_squid:S1854""<Remove this useless assignment to local variable "vehiculo".(ñŠ›Ÿúÿÿÿÿ8Üàëîº,
+Ÿsquid:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¹Ş‰8Üàëîº,
+Dsquid:S1481#"&Remove this unused "c" local variable.(çâœ8Üàëîº,
+Usquid:S1481B"7Remove this unused "valueEventListener" local variable.(×æË¶8âÉŠïº,

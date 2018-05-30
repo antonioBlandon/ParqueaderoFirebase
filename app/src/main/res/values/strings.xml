@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Parqueadero</string>
+    <string name="registrar_entrada">Registrar</string>
+    <string name="cobrar">Cobrar</string>
+    <string name="placa_title">Placa</string>
+    <string name="cilindraje_title">Cilindraje (En caso de motocicleta)</string>
+    <string name="buscar">Buscar</string>
+    <string name="placa_subtitle">Placa:</string>
+    <string name="cilindraje_subtitle">Cilindraje:</string>
+    <string name="fecha_ingreso_subtitle">Fecha Ingreso:</string>
+    <string name="fecha_salida_subtitle">Fecha Salida:</string>
+    <string name="tiempo_subtitle">Tiempo:</string>
+    <string name="valor_a_pagar_subtitle">Valor a Pagar:</string>
+    <string name="ingresar_placa">Ingrese la placa</string>
+    <string name="cilindraje">Ingresar cilindraje en CC</string>
+    <string name="vehiculo_no_autorizado">El vehiculo no tiene autorización para ingresar</string>
+    <string name="ingreso_exitoso">El vehículo ingreso exitosamente</string>
+    <string name="consultar">Consultar</string>
+    <string name="error_registro">Se produjo un error mientras se registraba el ingreso del vehículo</string>
+    <string name="error_read_data_base">Ocurrió un error al momento de la consulta. Intente mas tarde nuevamente</string>
+    <string name="placa_no_existe">La placa no existe o el vehículo ya salió del parqueadero</string>
+    <string name="placa_existe">Existe un vehiculo con la misma placa dentro del parqueadero</string>
+    <string name="cobro_exitoso">Proceso exitoso</string>
+    <string name="placa_vacia">Ingrese una placa por favor</string>
+    <string name="resumen">Resumen</string>
+    <string name="error_cargando_trm">Error cargnado el TRM. Por favor revise su conexión a internet e intente nuevamente.</string>
+    <string name="parqueadero_lleno">no hay cupo para ese vehículo</string>
+    <string name="ingresando_vehiculo">Ingreso Vehiculo</string>
+    <string name="cargando">Cargando ...</string>
+</resources>
