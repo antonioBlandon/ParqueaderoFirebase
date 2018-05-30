@@ -28,7 +28,7 @@ public class DataBaseManagerParqueadero implements DataBaseManager {
     }
 
     @Override
-    public void read(String nodeRerence, final Activity activity) {
+    public void read(String nodeRerence) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference(nodeRerence);
         reference.addValueEventListener(new ValueEventListener() {
             @Override

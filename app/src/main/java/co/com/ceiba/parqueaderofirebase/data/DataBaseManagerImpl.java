@@ -1,7 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.data;
 
-import android.app.Activity;
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,7 +41,7 @@ public class DataBaseManagerImpl implements DataBaseManager {
     }
 
     @Override
-    public void read(String nodeRerence, Activity activity) {
+    public void read(String nodeRerence) {
         //This method is not neccesary in this moment
     }
 

@@ -108,6 +108,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/TestDataBaseManagerVehiculo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/VehiculoBuilder.java">
           <value>
             <set />

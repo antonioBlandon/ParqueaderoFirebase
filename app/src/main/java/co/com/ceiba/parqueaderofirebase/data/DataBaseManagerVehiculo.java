@@ -33,7 +33,7 @@ public class DataBaseManagerVehiculo implements DataBaseManager {
     }
 
     @Override
-    public void read(String referenceNode, final Activity activity) {
+    public void read(String referenceNode) {
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference(referenceNode);
         reference.addChildEventListener(new ChildEventListener() {
             @Override

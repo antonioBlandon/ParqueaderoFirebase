@@ -83,8 +83,8 @@ public class ActivityRegistrar extends AppCompatActivity {
             }
         });
 
-        DataBaseManagerVehiculo.getInstance().read(DataBaseConstants.REFERENCE_VEHICLE, context);
-        DataBaseManagerParqueadero.getInstance().read(DataBaseConstants.REFERENCE_PARKING, context);
+        DataBaseManagerVehiculo.getInstance().read(DataBaseConstants.REFERENCE_VEHICLE);
+        DataBaseManagerParqueadero.getInstance().read(DataBaseConstants.REFERENCE_PARKING);
         getTRM();
 
     }
