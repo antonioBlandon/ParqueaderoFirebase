@@ -80,6 +80,7 @@ public class ActivityCobrar extends AppCompatActivity {
         btnCobrarParqueadero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                vehiculo.setFechaSalida(Calendar.getInstance().getTimeInMillis());
                 vehiculo.setValorPagado(cobrar(vehiculo, DataBaseManagerParqueadero.getParqueadero()));
                 DataBaseManagerImpl.getInstance().eliminarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.getParqueadero());
                 actualizarVista();
@@ -97,7 +98,6 @@ public class ActivityCobrar extends AppCompatActivity {
 
     public long cobrar(Vehiculo vehiculo, Parqueadero parqueadero) {
         Vigilante vigilante = VigilanteImpl.getInstance();
-        vehiculo.setFechaSalida(Calendar.getInstance().getTimeInMillis());
         long tiempoParqueadero = vigilante.calcularTiempoVehiculoParqueadero(vehiculo.getFechaIngreso(), vehiculo.getFechaSalida());
         long[] diasHoras = vigilante.calcularDiasHoras(tiempoParqueadero);
         vehiculo.setDiasEnParqueadero(diasHoras[0]);

@@ -8,6 +8,11 @@
             <set />
           </value>
         </entry>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/fragment.java">
           <value>
             <set />
@@ -89,6 +94,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/ParqueaderoBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/TestActivityCobrar.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/co/com/ceiba/parqueaderofirebase/TestActivityRegistrar.java">
           <value>
             <set />
           </value>
