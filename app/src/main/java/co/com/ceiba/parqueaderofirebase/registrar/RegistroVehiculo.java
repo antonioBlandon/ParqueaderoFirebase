@@ -1,7 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
-import android.content.Context;
-
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 
@@ -16,13 +14,13 @@ public interface RegistroVehiculo {
 
         void showRegistroExitoso();
 
-        void showTRM(String TRM);
+        void showTRM(String trm);
     }
 
     interface Presenter {
         void getTRM();
 
-        void showTRM(String Trm);
+        void showTRM(String trm);
 
         void showErrorTRM();
 

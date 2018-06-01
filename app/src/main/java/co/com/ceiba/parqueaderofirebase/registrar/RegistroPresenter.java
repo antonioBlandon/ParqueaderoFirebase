@@ -1,8 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
-import android.app.Activity;
-import android.content.Context;
-
 import java.util.List;
 
 import co.com.ceiba.parqueaderofirebase.R;

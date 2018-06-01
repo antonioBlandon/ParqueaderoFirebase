@@ -1,8 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
-import android.content.Context;
-import android.util.Log;
-
 import java.io.IOException;
 import java.util.Calendar;
 
@@ -43,7 +40,7 @@ public class RegistroModel implements RegistroVehiculo.Model {
                         try {
                             presenter.showTRM("$ " + response.body().string().replace("\"", ""));
                         } catch (IOException ioe) {
-                            ioe.printStackTrace();
+                            presenter.showErrorTRM();
                         }
                     }
 

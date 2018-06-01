@@ -1,6 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.data;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.google.firebase.database.ChildEventListener;

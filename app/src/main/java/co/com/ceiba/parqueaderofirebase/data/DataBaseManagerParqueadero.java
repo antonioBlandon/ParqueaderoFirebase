@@ -1,6 +1,5 @@
 package co.com.ceiba.parqueaderofirebase.data;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -14,7 +13,7 @@ import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 public class DataBaseManagerParqueadero implements DataBaseManager {
 
     static DataBaseManagerParqueadero instance;
-    static Parqueadero parqueadero;
+    static Parqueadero parqueadero = new Parqueadero();
 
     public static DataBaseManagerParqueadero getInstance() {
         if (instance == null) {
