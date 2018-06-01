@@ -23,8 +23,8 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
     }
 
     @Override
-    public void getTRM(Context context) {
-        model.getTRM(context);
+    public void getTRM() {
+        model.getTRM();
     }
 
     @Override
@@ -35,9 +35,9 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
     }
 
     @Override
-    public void showErrorTRM(String messageError) {
+    public void showErrorTRM() {
         if (view != null) {
-            view.showErrorTRM(messageError);
+            view.showErrorTRM();
         }
     }
 
@@ -52,7 +52,7 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
     public void validarCamposNulos(String placa, String cilindraje) {
         if (placa.isEmpty()) {
             if (view != null) {
-                view.showError(((Activity) view).getString(R.string.placa_vacia));
+                view.showError(R.string.placa_vacia);
             }
         } else {
             if (cilindraje.isEmpty()) {
@@ -68,7 +68,7 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
             validarPlacaExiste(DataBaseManagerVehiculo.getListVehiculo(), vehiculo);
         } else {
             if (view != null) {
-                view.showError(((Activity) view).getString(R.string.parqueadero_lleno));
+                view.showError(R.string.parqueadero_lleno);
             }
         }
     }
@@ -78,7 +78,7 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
             validarPlacaExiste(DataBaseManagerVehiculo.getListVehiculo(), vehiculo);
         } else {
             if (view != null) {
-                view.showError(((Activity) view).getString(R.string.parqueadero_lleno));
+                view.showError(R.string.parqueadero_lleno);
             }
         }
     }
@@ -92,7 +92,7 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
             }
         } else {
             if (view != null) {
-                view.showError(((Activity) view).getString(R.string.vehiculo_no_autorizado));
+                view.showError(R.string.vehiculo_no_autorizado);
             }
         }
     }
@@ -101,7 +101,7 @@ public class RegistroPresenter implements RegistroVehiculo.Presenter {
         for (Vehiculo vehiculoItem : listVehiculo) {
             if (vehiculoItem.getPlaca().contains(newVehicle.getPlaca())) {
                 if (view != null) {
-                    view.showError(((Activity) view).getString(R.string.placa_existe));
+                    view.showError(R.string.placa_existe);
                 }
                 return;
             }

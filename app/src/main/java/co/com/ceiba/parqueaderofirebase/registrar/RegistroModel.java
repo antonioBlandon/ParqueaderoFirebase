@@ -1,19 +1,21 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
 import android.content.Context;
+import android.util.Log;
 
-import com.android.volley.Request;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-
+import java.io.IOException;
 import java.util.Calendar;
 
-import co.com.ceiba.parqueaderofirebase.R;
-import co.com.ceiba.parqueaderofirebase.architecture.VolleyManager;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerImpl;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.http.GET;
 
 public class RegistroModel implements RegistroVehiculo.Model {
 
@@ -29,25 +31,27 @@ public class RegistroModel implements RegistroVehiculo.Model {
     }
 
     @Override
-    public void getTRM(final Context context) {
-        String url = "http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM";
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new com.android.volley.Response.Listener<String>() {
+    public void getTRM() {
+        new Retrofit.Builder()
+                .baseUrl("http://app.docm.co/")
+                .build()
+                .create(Trm.class)
+                .getTrm()
+                .enqueue(new Callback<ResponseBody>() {
                     @Override
-                    public void onResponse(String response) {
-                        presenter.showTRM("$ " + response.replace("\"", ""));
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        try {
+                            presenter.showTRM("$ " + response.body().string().replace("\"", ""));
+                        } catch (IOException ioe) {
+                            ioe.printStackTrace();
+                        }
                     }
-                }, new com.android.volley.Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                presenter.showErrorTRM(context.getString(R.string.error_cargando_trm));
-            }
-        });
 
-        // Add the request to the RequestQueue.
-        VolleyManager.getInstance(context).addToRequestQueue(stringRequest);
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        presenter.showErrorTRM();
+                    }
+                });
     }
 
     @Override
@@ -55,6 +59,11 @@ public class RegistroModel implements RegistroVehiculo.Model {
         boolean isCar = vehiculo.getCilindraje() == 0;
         DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.getParqueadero());
         presenter.showRegistroExitoso();
+    }
+
+    interface Trm {
+        @GET("prod/Dmservices/Utilities.svc/GetTRM")
+        Call<ResponseBody> getTrm();
     }
 
 }

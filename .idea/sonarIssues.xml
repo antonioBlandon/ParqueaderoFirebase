@@ -78,6 +78,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/cobrar/CobroParqueadero.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/cobrar/CobroParqueaderoActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/cobrar/CobroParqueaderoModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/cobrar/CobroParqueaderoPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/data/DataBaseConstants.java">
           <value>
             <set />
@@ -159,6 +179,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/utils/Utils.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_cobro_parqueadero.xml">
           <value>
             <set />
           </value>

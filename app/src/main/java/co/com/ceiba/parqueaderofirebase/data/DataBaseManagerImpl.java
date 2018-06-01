@@ -28,7 +28,7 @@ public class DataBaseManagerImpl implements DataBaseManager {
         }
     }
 
-    public void eliminarVehiculo(boolean isCar, Vehiculo vehiculo, Parqueadero parqueadero) {
+    public void registrarSalidaParqueadero(boolean isCar, Vehiculo vehiculo, Parqueadero parqueadero) {
         DatabaseReference reference = FirebaseDatabase.getInstance()
                 .getReference(DataBaseConstants.REFERENCE_VEHICLE);
         reference.child(vehiculo.getPlaca()).removeValue();

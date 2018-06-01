@@ -10,9 +10,9 @@ public interface RegistroVehiculo {
     interface View {
         void mostrarCobrar();
 
-        void showError(String messageError);
+        void showError(int idMessageError);
 
-        void showErrorTRM(String messageError);
+        void showErrorTRM();
 
         void showRegistroExitoso();
 
@@ -20,11 +20,11 @@ public interface RegistroVehiculo {
     }
 
     interface Presenter {
-        void getTRM(Context context);
+        void getTRM();
 
         void showTRM(String Trm);
 
-        void showErrorTRM(String messageError);
+        void showErrorTRM();
 
         void showRegistroExitoso();
 
@@ -34,7 +34,7 @@ public interface RegistroVehiculo {
     interface Model {
         Vehiculo crearVehiculo(String placa, int cilindraje);
 
-        void getTRM(Context context);
+        void getTRM();
 
         void agregarVehiculo(Vehiculo vehiculo, Parqueadero parqueadero);
     }

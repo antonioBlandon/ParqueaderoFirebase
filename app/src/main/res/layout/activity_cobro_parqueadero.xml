@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_margin="10dp"
-    tools:context=".cobrar.ActivityCobrar">
+    tools:context=".cobrar.CobroParqueaderoActivity">
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/text_input_cobrar_placa"

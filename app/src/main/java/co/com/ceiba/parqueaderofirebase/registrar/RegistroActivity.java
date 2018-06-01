@@ -1,10 +1,9 @@
 package co.com.ceiba.parqueaderofirebase.registrar;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
@@ -12,65 +11,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import java.util.Calendar;
-import java.util.List;
-
-import co.com.ceiba.parqueaderofirebase.cobrar.ActivityCobrar;
 import co.com.ceiba.parqueaderofirebase.R;
+import co.com.ceiba.parqueaderofirebase.cobrar.CobroParqueaderoActivity;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseConstants;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerParqueadero;
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
-import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerImpl;
-import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
-import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
-import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
 
-public class RegistroActivity extends AppCompatActivity {
 
-    private Activity context = this;
-    private boolean isCar;
+public class RegistroActivity extends AppCompatActivity implements RegistroVehiculo.View{
 
     private EditText etPlaca;
     private EditText etCilindraje;
+    private TextView tvTRM;
+
+    private RegistroVehiculo.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        etCilindraje = (EditText) findViewById(R.id.edit_text_ingresar_cilindraje);
-
-        etPlaca = (EditText) findViewById(R.id.edit_text_ingresar_placa);
+        tvTRM = findViewById(R.id.text_view_ingresar_trm);
+        etCilindraje = findViewById(R.id.edit_text_ingresar_cilindraje);
+        etPlaca = findViewById(R.id.edit_text_ingresar_placa);
         etPlaca.setFilters(new InputFilter[]{new InputFilter.AllCaps(), new InputFilter.LengthFilter(6)});
 
         Button btnRegistrarIngreso = (Button) findViewById(R.id.btn_ingresar_ingresar_vehiculo);
         btnRegistrarIngreso.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Vehiculo vehiculo = validarCamposNulos(etPlaca.getText().toString(), etCilindraje.getText().toString());
-                if(vehiculo == null){
-                    Toast.makeText(context, getString(R.string.placa_vacia), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                isCar = vehiculo.getCilindraje() == 0;
-                boolean placaValida = VigilanteImpl.getInstance().validarPlaca(vehiculo.getPlaca(), vehiculo.getFechaIngreso());
-                boolean tieneCupo = validarCupo(vehiculo, isCar, DataBaseManagerParqueadero.getParqueadero());
-                boolean placaExiste = validarPlacaExiste(DataBaseManagerVehiculo.getListVehiculo(), vehiculo);
-                boolean ingresoExitoso = false;
-                if(placaValida && tieneCupo && !placaExiste){
-                    DataBaseManagerImpl.getInstance().agregarVehiculo(isCar, vehiculo, DataBaseManagerParqueadero.getParqueadero());
-                    etCilindraje.setText("");
-                    etPlaca.setText("");
-                    ingresoExitoso = true;
-                }
-                showMessage(ingresoExitoso, placaValida, tieneCupo, placaExiste);
+                registrar();
             }
         });
 
@@ -79,89 +49,49 @@ public class RegistroActivity extends AppCompatActivity {
         fabIrAcobrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-                startActivity(new Intent(RegistroActivity.this, ActivityCobrar.class));
+                mostrarCobrar();
             }
         });
 
+        //Se inicia el presentador y su posterior consulta del TRM
+        presenter = new RegistroPresenter(this);
+        presenter.getTRM();
+
+        //"Se pone a escuchar firebase"
         DataBaseManagerVehiculo.getInstance().read(DataBaseConstants.REFERENCE_VEHICLE);
         DataBaseManagerParqueadero.getInstance().read(DataBaseConstants.REFERENCE_PARKING);
-        getTRM();
 
     }
 
-    public void getTRM() {
-
-        final TextView tvTRM = findViewById(R.id.text_view_ingresar_trm);
-
-        // Instantiate the RequestQueue.
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://app.docm.co/prod/Dmservices/Utilities.svc/GetTRM";
-
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        tvTRM.setText("$ " + response.replace("\"", ""));
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                tvTRM.setText(getString(R.string.error_cargando_trm));
-            }
-        });
-
-        // Add the request to the RequestQueue.
-        queue.add(stringRequest);
-
+    private void registrar() {
+        presenter.validarCamposNulos(etPlaca.getText().toString(), etCilindraje.getText().toString());
     }
 
-    public void showMessage(boolean ingresoExitoso, boolean placaValida, boolean tieneCupo, boolean placaExiste) {
-        if (ingresoExitoso) {
-            Toast.makeText(context, getString(R.string.ingreso_exitoso), Toast.LENGTH_SHORT).show();
-        } else if ( placaValida && tieneCupo && !placaExiste) { //Solo se muestra si los otros mensajes no se han de mostrar
-            Toast.makeText(context, getString(R.string.error_registro), Toast.LENGTH_SHORT).show();
-        }
-        if (!placaValida) {
-            Toast.makeText(context, getString(R.string.vehiculo_no_autorizado), Toast.LENGTH_LONG).show();
-        }
-        if (!tieneCupo) {
-            Toast.makeText(context, getString(R.string.parqueadero_lleno), Toast.LENGTH_LONG).show();
-        }
-        if (placaExiste) {
-            Toast.makeText(context, getString(R.string.placa_existe), Toast.LENGTH_LONG).show();
-        }
+    @Override
+    public void mostrarCobrar() {
+        finish();
+        startActivity(new Intent(RegistroActivity.this, CobroParqueaderoActivity.class));
     }
 
-    public Vehiculo validarCamposNulos(String placa, String cilindraje) {
-        if (placa.isEmpty()) {
-            return null;
-        }else {
-            if (cilindraje.isEmpty()){
-                return new Vehiculo(placa, 0, Calendar.getInstance().getTimeInMillis());
-            }else{
-                return new Vehiculo(placa, Integer.valueOf(cilindraje), Calendar.getInstance().getTimeInMillis());
-            }
-        }
+    @Override
+    public void showError(int idMessageError) {
+        Toast.makeText(this, getString(idMessageError), Toast.LENGTH_SHORT).show();
     }
 
-    public boolean validarCupo(Vehiculo vehiculo, boolean isCar, Parqueadero parqueadero){
-        if(isCar){
-            return VigilanteImpl.getInstance().validarCantidadCarros(parqueadero.getCantidadCarros());
-        }else{
-            return VigilanteImpl.getInstance().validarCantidadMotos(parqueadero.getCantidadMotos());
-        }
+    @Override
+    public void showTRM(String trm) {
+        tvTRM.setText(trm);
     }
 
-    public boolean validarPlacaExiste(List<Vehiculo> listVehiculo, Vehiculo newVehicle){
-
-        for (Vehiculo vehiculoItem : listVehiculo) {
-            if(vehiculoItem.getPlaca().contains(newVehicle.getPlaca())){
-                return true;
-            }
-        }
-        return false;
+    @Override
+    public void showErrorTRM() {
+        tvTRM.setText(getString(R.string.error_cargando_trm));
     }
 
+    @Override
+    public void showRegistroExitoso() {
+        etCilindraje.setText("");
+        etPlaca.setText("");
+        Toast.makeText(this, getString(R.string.ingreso_exitoso), Toast.LENGTH_SHORT).show();
+    }
 }
