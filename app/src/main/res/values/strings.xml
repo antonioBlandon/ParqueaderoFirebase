@@ -23,7 +23,7 @@
     <string name="cobro_exitoso">Proceso exitoso</string>
     <string name="placa_vacia">Ingrese una placa por favor</string>
     <string name="resumen">Resumen</string>
-    <string name="error_cargando_trm">Error cargnado el TRM. Por favor revise su conexión a internet e intente nuevamente.</string>
+    <string name="error_cargando_trm">Error cargando el TRM</string>
     <string name="parqueadero_lleno">no hay cupo para ese vehículo</string>
     <string name="ingresando_vehiculo">Ingreso Vehiculo</string>
     <string name="cargando">Cargando ...</string>

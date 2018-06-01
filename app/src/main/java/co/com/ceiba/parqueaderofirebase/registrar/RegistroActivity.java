@@ -32,7 +32,7 @@ import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
 
-public class ActivityRegistrar extends AppCompatActivity {
+public class RegistroActivity extends AppCompatActivity {
 
     private Activity context = this;
     private boolean isCar;
@@ -80,7 +80,7 @@ public class ActivityRegistrar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                startActivity(new Intent(ActivityRegistrar.this, ActivityCobrar.class));
+                startActivity(new Intent(RegistroActivity.this, ActivityCobrar.class));
             }
         });
 
@@ -103,7 +103,6 @@ public class ActivityRegistrar extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        // Display the first 500 characters of the response string.
                         tvTRM.setText("$ " + response.replace("\"", ""));
                     }
                 }, new Response.ErrorListener() {

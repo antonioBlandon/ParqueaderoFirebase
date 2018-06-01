@@ -1,6 +1,6 @@
 package co.com.ceiba.parqueaderofirebase.data.entities;
 
-public class Parqueadero {
+public class    Parqueadero {
 
     private int adicionCilindraje;
     private int cantidadCarros;

@@ -18,7 +18,57 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionDagger2/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/java/co/com/ceiba/introduccionmvp/AlCuadrado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/java/co/com/ceiba/introduccionmvp/ModelAlCuadrado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/java/co/com/ceiba/introduccionmvp/PresenterAlCuadrado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/java/co/com/ceiba/introduccionmvp/ViewAlCuadrado.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/java/co/com/ceiba/introduccionmvp/ViewMainActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../IntroduccionMVP/app/src/main/res/layout/activity_main.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/architecture/VolleyManager.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/arquitecture/VolleyManager.java">
           <value>
             <set />
           </value>
@@ -79,6 +129,31 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/ActivityRegistrar.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/RegistroActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/RegistroActivityNew.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/RegistroModel.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/RegistroPresenter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/co/com/ceiba/parqueaderofirebase/registrar/RegistroVehiculo.java">
           <value>
             <set />
           </value>

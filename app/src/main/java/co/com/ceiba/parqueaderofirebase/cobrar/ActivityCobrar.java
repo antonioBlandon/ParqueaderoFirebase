@@ -25,7 +25,7 @@ import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import co.com.ceiba.parqueaderofirebase.domain.Vigilante;
 import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
-import co.com.ceiba.parqueaderofirebase.registrar.ActivityRegistrar;
+import co.com.ceiba.parqueaderofirebase.registrar.RegistroActivity;
 import co.com.ceiba.parqueaderofirebase.utils.Utils;
 
 public class ActivityCobrar extends AppCompatActivity {
@@ -156,7 +156,7 @@ public class ActivityCobrar extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             finish();
-            startActivity(new Intent(context, ActivityRegistrar.class));
+            startActivity(new Intent(context, RegistroActivity.class));
         }
         return super.onKeyDown(keyCode, event);
     }

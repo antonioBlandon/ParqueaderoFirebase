@@ -14,6 +14,7 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class TestDataBaseManagerVehiculo {
 
@@ -22,6 +23,14 @@ public class TestDataBaseManagerVehiculo {
         DataBaseManagerVehiculo dataBaseManagerVehiculo = mock(DataBaseManagerVehiculo.class);
         Vehiculo vehiculo = mock(Vehiculo.class);
         doNothing().when(dataBaseManagerVehiculo).write(isA(String.class), isA(Object.class));
+        dataBaseManagerVehiculo.write("", vehiculo);
+        verify(dataBaseManagerVehiculo, times(1)).write("", vehiculo);
+    }
+
+    @Test
+    public void testWrite1(){
+        DataBaseManagerVehiculo dataBaseManagerVehiculo = mock(DataBaseManagerVehiculo.class);
+        Vehiculo vehiculo = mock(Vehiculo.class);
         dataBaseManagerVehiculo.write("", vehiculo);
         verify(dataBaseManagerVehiculo, times(1)).write("", vehiculo);
     }

@@ -10,7 +10,6 @@ import java.util.List;
 import co.com.ceiba.parqueaderofirebase.cobrar.ActivityCobrar;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
-import co.com.ceiba.parqueaderofirebase.registrar.ActivityRegistrar;
 
 import static co.com.ceiba.parqueaderofirebase.ParqueaderoBuilder.aParking;
 import static co.com.ceiba.parqueaderofirebase.VehiculoBuilder.aVehicle;

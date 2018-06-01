@@ -4,25 +4,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
-import co.com.ceiba.parqueaderofirebase.registrar.ActivityRegistrar;
+import co.com.ceiba.parqueaderofirebase.registrar.RegistroActivity;
 
 import static co.com.ceiba.parqueaderofirebase.ParqueaderoBuilder.aParking;
 import static co.com.ceiba.parqueaderofirebase.VehiculoBuilder.aVehicle;
 import static org.mockito.Matchers.anyString;
 
-public class TestActivityRegistrar {
+public class TestRegistroActivity {
 
-    private ActivityRegistrar activityRegistrar;
+    private RegistroActivity registroActivity;
 
     @Before
     public void prepareData() {
-        activityRegistrar = new ActivityRegistrar();
+        registroActivity = new RegistroActivity();
     }
 
     @Test
@@ -30,7 +29,7 @@ public class TestActivityRegistrar {
         //Arrange
         String placa = "TRE567";
         //Act
-        Vehiculo vehiculo = activityRegistrar.validarCamposNulos(placa, anyString());
+        Vehiculo vehiculo = registroActivity.validarCamposNulos(placa, anyString());
         //Assert
         Assert.assertNotNull(vehiculo);
     }
@@ -40,7 +39,7 @@ public class TestActivityRegistrar {
         //Arrange
         String placa = "";
         //Act
-        Vehiculo vehiculo = activityRegistrar.validarCamposNulos(placa, anyString());
+        Vehiculo vehiculo = registroActivity.validarCamposNulos(placa, anyString());
         //Assert
         Assert.assertNull(vehiculo);
     }
@@ -52,7 +51,7 @@ public class TestActivityRegistrar {
         Parqueadero parqueadero = aParking().build();
         boolean isCar = true;
         //Act
-        boolean tieneCupo = activityRegistrar.validarCupo(vehiculo, isCar, parqueadero);
+        boolean tieneCupo = registroActivity.validarCupo(vehiculo, isCar, parqueadero);
         //Assert
         Assert.assertEquals(false, tieneCupo);
     }
@@ -64,7 +63,7 @@ public class TestActivityRegistrar {
         Parqueadero parqueadero = aParking().build();
         boolean isCar = false;
         //Act
-        boolean tieneCupo = activityRegistrar.validarCupo(vehiculo, isCar, parqueadero);
+        boolean tieneCupo = registroActivity.validarCupo(vehiculo, isCar, parqueadero);
         //Assert
         Assert.assertEquals(false, tieneCupo);
     }
@@ -76,7 +75,7 @@ public class TestActivityRegistrar {
         Vehiculo vehiculo = aVehicle().build();
         vehiculoList.add(vehiculo);
         //Act
-        boolean placaExiste = activityRegistrar.validarPlacaExiste(vehiculoList, vehiculo);
+        boolean placaExiste = registroActivity.validarPlacaExiste(vehiculoList, vehiculo);
         //Assert
         Assert.assertEquals(true, placaExiste);
     }
@@ -88,7 +87,7 @@ public class TestActivityRegistrar {
         vehiculoList.add(aVehicle().build());
         Vehiculo nuevoVehiculo = aVehicle().withPlacaWithoutAinit("TRE345").build();
         //Act
-        boolean placaExiste = activityRegistrar.validarPlacaExiste(vehiculoList, nuevoVehiculo);
+        boolean placaExiste = registroActivity.validarPlacaExiste(vehiculoList, nuevoVehiculo);
         //Assert
         Assert.assertEquals(false, placaExiste);
     }
