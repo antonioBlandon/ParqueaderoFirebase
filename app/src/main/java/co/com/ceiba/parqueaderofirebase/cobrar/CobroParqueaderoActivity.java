@@ -19,7 +19,7 @@ import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
 import co.com.ceiba.parqueaderofirebase.registrar.RegistroActivity;
 import co.com.ceiba.parqueaderofirebase.utils.Utils;
 
-public class CobroParqueaderoActivity extends AppCompatActivity implements CobroParqueadero.View{
+public class CobroParqueaderoActivity extends AppCompatActivity implements CobroParqueadero.View {
 
     private LinearLayout llInfoVehiculo;
     private TextView tvPlaca;
@@ -35,7 +35,6 @@ public class CobroParqueaderoActivity extends AppCompatActivity implements Cobro
         setContentView(R.layout.activity_cobro_parqueadero);
 
         llInfoVehiculo = findViewById(R.id.linear_layout_cobra_info_vehiculo);
-        etBuscarPlaca = findViewById(R.id.edit_text_cobrar_placa);
         tvPlaca = findViewById(R.id.text_view_cobrar_placa);
         tvCilindraje = findViewById(R.id.text_view_cobrar_cilindraje);
         tvFechaIngreso = findViewById(R.id.text_view_cobrar_fecha_ingreso);
@@ -43,7 +42,7 @@ public class CobroParqueaderoActivity extends AppCompatActivity implements Cobro
         etBuscarPlaca = findViewById(R.id.edit_text_cobrar_placa);
         etBuscarPlaca.setFilters(new InputFilter[]{new InputFilter.AllCaps(), new InputFilter.LengthFilter(6)});
 
-        Button btnBuscarPlaca = (Button) findViewById(R.id.btn_cobrar_buscar_placa);
+        Button btnBuscarPlaca = findViewById(R.id.btn_cobrar_buscar_placa);
         btnBuscarPlaca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +50,7 @@ public class CobroParqueaderoActivity extends AppCompatActivity implements Cobro
             }
         });
 
-        Button btnCobrarParqueadero = (Button) findViewById(R.id.btn_cobrar_cobrar_parqueadero);
+        Button btnCobrarParqueadero = findViewById(R.id.btn_cobrar_cobrar_parqueadero);
         btnCobrarParqueadero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,21 +74,21 @@ public class CobroParqueaderoActivity extends AppCompatActivity implements Cobro
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         View viewResumen = getLayoutInflater().inflate(R.layout.content_dialog_factura, null);
 
-        TextView tvPlacaResumen = (TextView) viewResumen.findViewById(R.id.text_view_resumen_placa);
+        TextView tvPlacaResumen = viewResumen.findViewById(R.id.text_view_resumen_placa);
         tvPlacaResumen.setText(vehiculo.getPlaca());
-        TextView tvFechaIngresoResumen = (TextView) viewResumen.findViewById(R.id.text_view_resumen_fecha_ingreso);
+        TextView tvFechaIngresoResumen = viewResumen.findViewById(R.id.text_view_resumen_fecha_ingreso);
         tvFechaIngresoResumen.setText(Utils.getDateHourInFormat(vehiculo.getFechaIngreso()));
-        TextView tvFechaSalida = (TextView) viewResumen.findViewById(R.id.text_view_resumen_fecha_salida);
+        TextView tvFechaSalida = viewResumen.findViewById(R.id.text_view_resumen_fecha_salida);
         tvFechaSalida.setText(Utils.getDateHourInFormat(vehiculo.getFechaSalida()));
-        TextView tvTiempoParqueadero = (TextView) viewResumen.findViewById(R.id.text_view_resumen_tiempo);
+        TextView tvTiempoParqueadero = viewResumen.findViewById(R.id.text_view_resumen_tiempo);
         tvTiempoParqueadero.setText(
                 Long.toString(VigilanteImpl.getInstance().calcularTiempoVehiculoParqueadero(vehiculo.getFechaIngreso()
                         , vehiculo.getFechaSalida())) + " hora(s)"
         );
-        TextView tvCosto = (TextView) viewResumen.findViewById(R.id.text_view_resumen_valor_a_pagar);
+        TextView tvCosto = viewResumen.findViewById(R.id.text_view_resumen_valor_a_pagar);
         tvCosto.setText(Double.toString(vehiculo.getValorPagado()));
 
-        TextView tvCilindrajeResumen = (TextView) viewResumen.findViewById(R.id.text_view_resumen_cilindraje);
+        TextView tvCilindrajeResumen = viewResumen.findViewById(R.id.text_view_resumen_cilindraje);
         if (vehiculo.getCilindraje() != 0) {
             tvCilindrajeResumen.setText(Integer.toString(vehiculo.getCilindraje()));
         }
@@ -99,8 +98,8 @@ public class CobroParqueaderoActivity extends AppCompatActivity implements Cobro
     }
 
     @Override
-    public void setUpErrorSearch(String messageError) {
-        Toast.makeText(this, messageError, Toast.LENGTH_SHORT).show();
+    public void setUpErrorSearch(int idMessageError) {
+        Toast.makeText(this, getString(idMessageError), Toast.LENGTH_SHORT).show();
         llInfoVehiculo.setVisibility(View.GONE);
     }
 

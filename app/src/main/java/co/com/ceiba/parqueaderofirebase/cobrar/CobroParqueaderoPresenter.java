@@ -35,7 +35,7 @@ public class CobroParqueaderoPresenter implements CobroParqueadero.Presenter {
     public void validarCamposNulos(String placa) {
         if (placa.isEmpty()) {
             if (view != null) {
-                view.setUpErrorSearch(((Activity) view).getString(R.string.placa_vacia));
+                view.setUpErrorSearch(R.string.placa_vacia);
             }
         } else {
             model.getVehiculo(DataBaseManagerVehiculo.getListVehiculo(), placa);
@@ -51,7 +51,7 @@ public class CobroParqueaderoPresenter implements CobroParqueadero.Presenter {
             }
         } else {
             if (view != null) {
-                view.setUpErrorSearch(((Activity) view).getString(R.string.placa_no_existe));
+                view.setUpErrorSearch(R.string.placa_no_existe);
             }
         }
     }

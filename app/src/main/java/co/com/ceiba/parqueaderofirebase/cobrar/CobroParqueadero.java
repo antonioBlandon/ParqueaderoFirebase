@@ -12,7 +12,7 @@ public interface CobroParqueadero {
 
         void showResumen(Vehiculo vehiculo);
 
-        void setUpErrorSearch(String messageError);
+        void setUpErrorSearch(int idMessageError);
 
         void setUpInfo(Vehiculo vehiculo);
     }

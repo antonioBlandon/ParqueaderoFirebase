@@ -12,9 +12,11 @@ import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 import static co.com.ceiba.parqueaderofirebase.ParqueaderoBuilder.aParking;
 import static co.com.ceiba.parqueaderofirebase.VehiculoBuilder.aVehicle;
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CobroParqueaderoPresenterTest {
@@ -45,10 +47,26 @@ public class CobroParqueaderoPresenterTest {
     }
 
     @Test
+    public void validarPlacaNoExiste() {
+        Vehiculo vehiculo = mock(Vehiculo.class);
+        when(vehiculo.getPlaca()).thenReturn(null);
+        presenter.validarPlacaExiste(vehiculo);
+        verify(view).setUpErrorSearch(anyInt());
+    }
+
+    @Test
     public void validarPlacaExiste() {
+        Vehiculo vehiculo = mock(Vehiculo.class);
+        when(vehiculo.getPlaca()).thenReturn("DFG231");
+        presenter.validarPlacaExiste(vehiculo);
+        verify(view).setUpInfo(vehiculo);
     }
 
     @Test
     public void showProcesoExitoso() {
+        Vehiculo vehiculo = mock(Vehiculo.class);
+        presenter.showProcesoExitoso(vehiculo);
+        verify(view).showProcesoExitoso();
+        verify(view).showResumen(vehiculo);
     }
 }
