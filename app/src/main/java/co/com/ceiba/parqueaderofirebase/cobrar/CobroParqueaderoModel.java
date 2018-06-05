@@ -12,9 +12,9 @@ import co.com.ceiba.parqueaderofirebase.domain.VigilanteImpl;
 
 public class CobroParqueaderoModel implements CobroParqueadero.Model {
 
-    private CobroParqueaderoPresenter presenter;
+    private CobroParqueadero.Presenter presenter;
 
-    public CobroParqueaderoModel(CobroParqueaderoPresenter presenter) {
+    public CobroParqueaderoModel(CobroParqueadero.Presenter presenter) {
         this.presenter = presenter;
     }
 

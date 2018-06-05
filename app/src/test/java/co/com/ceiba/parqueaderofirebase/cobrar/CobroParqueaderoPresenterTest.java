@@ -6,6 +6,11 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import co.com.ceiba.parqueaderofirebase.data.DataBaseManagerVehiculo;
 import co.com.ceiba.parqueaderofirebase.data.entities.Parqueadero;
 import co.com.ceiba.parqueaderofirebase.data.entities.Vehiculo;
 
@@ -15,6 +20,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -29,7 +35,7 @@ public class CobroParqueaderoPresenterTest {
     private CobroParqueaderoPresenter presenter;
 
     @Before
-    public void setup() throws Exception{
+    public void setup() throws Exception {
         presenter = new CobroParqueaderoPresenter(view);
     }
 
@@ -39,7 +45,6 @@ public class CobroParqueaderoPresenterTest {
 
     @Test
     public void cobrar() {
-
     }
 
     @Test
