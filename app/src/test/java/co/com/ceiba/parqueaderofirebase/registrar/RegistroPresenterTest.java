@@ -74,6 +74,13 @@ public class RegistroPresenterTest {
     }
 
     @Test
+    public void validarCamposNoNulos() {
+        String placa = "ASDRET";
+        presenter.validarCamposNulos(placa,anyString());
+        presenter.validarPlaca(aVehicle().build());
+    }
+
+    @Test
     public void validarCupoCarro() {
     }
 
